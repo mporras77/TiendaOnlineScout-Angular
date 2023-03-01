@@ -1,9 +1,8 @@
-# E-Commerce open source
+# TiendaScout-Angular
 Creado con Node.js, Angular y MySQL
 ![E-Commerce open source con Node.js y Angular](https://parzibyte.me/blog/wp-content/uploads/2020/06/E-Commerce-en-Angular-y-Node-Vista-principal-de-tienda.png)
 
-# Tutorial
-Justo aquí: https://parzibyte.me/blog/2020/06/10/pequeno-e-commerce-angular-node-mysql-tienda-online/
+
 
 # Instalación
 ## Requisitos
