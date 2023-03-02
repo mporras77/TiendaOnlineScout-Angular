@@ -1,28 +1,30 @@
-/*
 
-    Programado por Luis Cabrera Benito 
-  ____          _____               _ _           _       
- |  _ \        |  __ \             (_) |         | |      
- | |_) |_   _  | |__) |_ _ _ __ _____| |__  _   _| |_ ___ 
- |  _ <| | | | |  ___/ _` | '__|_  / | '_ \| | | | __/ _ \
- | |_) | |_| | | |  | (_| | |   / /| | |_) | |_| | ||  __/
- |____/ \__, | |_|   \__,_|_|  /___|_|_.__/ \__, |\__\___|
-         __/ |                               __/ |        
-        |___/                               |___/         
-    
-    
-    Blog:       https://parzibyte.me/blog
-    Ayuda:      https://parzibyte.me/blog/contrataciones-ayuda/
-    Contacto:   https://parzibyte.me/blog/contacto/
-*/
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, NgModule,  CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {ProductosService} from "../productos.service";
 import {ActivatedRoute} from "@angular/router";
 import {Producto} from "../producto";
+import { BrowserModule } from '@angular/platform-browser';
 import {CarritoService} from "../carrito.service";
 import {DataSharingService} from "../data-sharing.service";
 import {environment} from "../../environments/environment";
+import { MatChipsModule,  } from '@angular/material/chips';
+import { CommonModule } from '@angular/common';
 
+
+
+@NgModule({
+
+  imports: [
+    MatChipsModule, // asegúrate de tener importado el módulo correspondientr el módulo aquí
+    CommonModule,
+    BrowserModule,
+
+    // fin módulos importados 
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+})
+export class TuModulo { }
+export class AppModule { }
 @Component({
   selector: 'app-detalle-de-producto',
   templateUrl: './detalle-de-producto.component.html',
@@ -38,7 +40,7 @@ export class DetalleDeProductoComponent implements OnInit {
   };
   public fotoSeleccionada: string;
   public indiceSeleccionado = 0;
-  public yaExiste: boolean;
+  public yaExiste: boolean = true;
 
   constructor(private carritoService: CarritoService, private productosService: ProductosService, private activatedRoute: ActivatedRoute, private dataSharingService: DataSharingService) {
 
@@ -74,6 +76,7 @@ export class DetalleDeProductoComponent implements OnInit {
     // Comunicación entre componentes
     this.dataSharingService.changeMessage("car_updated");
   }
+  
 
   async ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get("id")
