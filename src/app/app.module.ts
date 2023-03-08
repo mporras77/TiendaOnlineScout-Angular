@@ -50,6 +50,7 @@ import {MatMenuModule} from "@angular/material/menu";
 import { TerminarCompraComponent } from './terminar-compra/terminar-compra.component';
 import {MatStepperModule} from "@angular/material/stepper";
 import { DetalleDeVentaComponent } from './detalle-de-venta/detalle-de-venta.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { DetalleDeVentaComponent } from './detalle-de-venta/detalle-de-venta.com
     TarjetaProductoComponent,
     DetalleDeProductoComponent,
     TerminarCompraComponent,
-    DetalleDeVentaComponent
+    DetalleDeVentaComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

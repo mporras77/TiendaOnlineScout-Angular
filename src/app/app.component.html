@@ -5,7 +5,7 @@
         <mat-icon>menu</mat-icon>
       </button>
       <span>
-        Mi tienda&nbsp;|&nbsp;By parzibyte
+         tienda&nbsp;
       </span>
       <span class="example-fill-remaining-space"></span>
       <button mat-raised-button [matMenuTriggerFor]="menu">
@@ -21,16 +21,16 @@
           <mat-icon>shopping_cart</mat-icon>
           Terminar compra</a>
       </mat-menu>
-      <a style="margin-left: 10px" mat-raised-button color="primary"
-         href="https://parzibyte.me/blog/contrataciones-ayuda/" target="_blank">
-        Ayuda y soporte
+      <a style="margin-left: 10px" mat-raised-button color="primary"routerLink="/productos">
+        <mat-icon color="primary">list_alt</mat-icon>
+        cre
       </a>
     </mat-toolbar-row>
   </mat-toolbar>
   <mat-sidenav-container class="contenido">
     <mat-sidenav style="min-width: 300px;" #cajon opened mode="side">
       <mat-nav-list>
-        <p style="margin-left: 4px;">Administrador</p>
+        <p style="margin-left: 4px;">mis productos y ventas </p>
         <a mat-list-item routerLink="/productos">
           <mat-icon color="primary">list_alt</mat-icon>
           Productos
@@ -47,7 +47,7 @@
         </a>
         <mat-divider></mat-divider>
         <a mat-list-item href="https://parzibyte.me/blog/" target="_blank">
-          Creado por Parzibyte
+          Creado por Mauricio Porras Mosquera
         </a>
       </mat-nav-list>
     </mat-sidenav>

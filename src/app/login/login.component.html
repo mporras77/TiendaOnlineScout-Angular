@@ -1,0 +1,37 @@
+<h2>Registro</h2>
+<div *ngIf="!registrado"> 
+    <form (submit)="register()">
+        <label>Nombre completo</label>
+        <input type="text" [(ngModel)]="fullName" name="fullName" required>
+        <label>Correo electrónico</label>
+        <input type="email" [(ngModel)]="email" name="email" required>
+        <label>Contraseña</label>
+        <input type="password" [(ngModel)]="password" name="password" required>
+        <label>Lugar de residencia</label>
+        <input type="text" [(ngModel)]="residence" name="residence" required>
+        <label>Imagen de perfil</label>
+        <input type="file" [(ngModel)]="profileImage" name="profileImage">
+        <label>Rol</label>
+        <select [(ngModel)]="role" name="role" required>
+          <option value="usuario">Usuario</option>
+          <option value="administrador">Administrador</option>
+        </select>
+        <div *ngIf="role === 'administrador'">
+          <label>Código de acceso</label>
+          <input type="text" [(ngModel)]="adminCode" name="adminCode" required>
+          <div *ngIf="invalidCode" class="error">Código de acceso inválido</div>
+        </div>
+        <button type="submit">Registrarse</button>
+    </form>
+  </div>
+
+<div *ngIf="registrado">
+    <h2>Iniciar sesión</h2>
+    <form (submit)="login()">
+        <label>Correo electrónico</label>
+        <input type="email" [(ngModel)]="loginEmail" name="loginEmail" required>
+        <label>Contraseña</label>
+        <input type="password" [(ngModel)]="loginPassword" name="loginPassword" required>
+      <button type="submit">Iniciar sesión</button>
+    </form>
+  </div>
