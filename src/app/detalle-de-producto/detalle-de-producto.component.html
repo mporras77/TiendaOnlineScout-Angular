@@ -18,12 +18,12 @@
       <p>{{producto.descripcion}}</p>
       <strong>Precio</strong>
       <h1 class="mat-display-2">{{producto.precio | currency}}</h1>
-      <mat-chip-list *ngIf="yaExiste">
+      <mat-chip *ngIf="yaExiste">
         <mat-chip color="warn" selected>
           <mat-icon>check</mat-icon>
           En el carrito de compras
         </mat-chip>
-      </mat-chip-list>
+      </mat-chip>
       <button *ngIf="!yaExiste" (click)="agregarAlCarrito()" class="carrito" mat-raised-button color="accent">
 
         <mat-icon>add</mat-icon>
