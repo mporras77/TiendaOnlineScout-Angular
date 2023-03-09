@@ -1,5 +1,6 @@
-<h2>Registro</h2>
+
 <div *ngIf="!registrado"> 
+  <h2>Registro</h2>
     <form (submit)="register()">
         <label>Nombre completo</label>
         <input type="text" [(ngModel)]="fullName" name="fullName" required>
@@ -21,10 +22,18 @@
           <input type="text" [(ngModel)]="adminCode" name="adminCode" required>
           <div *ngIf="invalidCode" class="error">Código de acceso inválido</div>
         </div>
+        <label>
+          <input type="checkbox" [(ngModel)]="acceptTerms" name="acceptTerms" required>
+          Acepto los términos y condiciones
+        </label>
+        <div>
+          <a href="https://www.example.com/terminos-y-condiciones" target="_blank">Términos y condiciones</a>
+        </div>
         <button type="submit">Registrarse</button>
     </form>
   </div>
 
+ 
 <div *ngIf="registrado">
     <h2>Iniciar sesión</h2>
     <form (submit)="login()">
@@ -34,4 +43,4 @@
         <input type="password" [(ngModel)]="loginPassword" name="loginPassword" required>
       <button type="submit">Iniciar sesión</button>
     </form>
-  </div>
+</div>

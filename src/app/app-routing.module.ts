@@ -20,8 +20,8 @@ const routes: Routes = [
   {path: 'producto/detalle/:id', component: DetalleDeProductoComponent},
   {path: 'terminar_compra', component: TerminarCompraComponent},
   {path: 'detalle-venta/:id', component: DetalleDeVentaComponent},
-  {path: '', redirectTo: "/login", pathMatch: "full"},
-  {path: '**', redirectTo: "/tienda"},
+  {path: '', redirectTo: "/tienda", pathMatch: "full"},
+  {path: '**', redirectTo: "/login"},
   {path: 'login', component: LoginComponent},
 ];
 
