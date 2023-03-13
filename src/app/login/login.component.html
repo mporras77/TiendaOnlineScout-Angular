@@ -1,7 +1,6 @@
-
 <div *ngIf="!registrado"> 
-  <h2>Registro</h2>
     <form (submit)="register()">
+      <h2>Registro</h2>
         <label>Nombre completo</label>
         <input type="text" [(ngModel)]="fullName" name="fullName" required>
         <label>Correo electrónico</label>
@@ -11,7 +10,7 @@
         <label>Lugar de residencia</label>
         <input type="text" [(ngModel)]="residence" name="residence" required>
         <label>Imagen de perfil</label>
-        <input type="file" [(ngModel)]="profileImage" name="profileImage">
+        <input type="file" [(ngModel)]="profileImage" name="profileImage" class="file-input">
         <label>Rol</label>
         <select [(ngModel)]="role" name="role" required>
           <option value="usuario">Usuario</option>
@@ -30,17 +29,20 @@
           <a href="https://www.example.com/terminos-y-condiciones" target="_blank">Términos y condiciones</a>
         </div>
         <button type="submit">Registrarse</button>
+        <button (click)="mostrarIniciarSesion()">Ya tengo una cuenta</button>
     </form>
+   
   </div>
 
  
 <div *ngIf="registrado">
-    <h2>Iniciar sesión</h2>
-    <form (submit)="login()">
+  <form (submit)="login()">
+         <h2>Iniciar sesión</h2>
         <label>Correo electrónico</label>
         <input type="email" [(ngModel)]="loginEmail" name="loginEmail" required>
         <label>Contraseña</label>
         <input type="password" [(ngModel)]="loginPassword" name="loginPassword" required>
       <button type="submit">Iniciar sesión</button>
+      <button (click)="mostrarRegistro()">Crear una cuenta</button>
     </form>
 </div>

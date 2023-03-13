@@ -1,0 +1,30 @@
+<div class="profile">
+    <div class="basic-info">
+      <img class="profile-image" src="{{ user.profileImageUrl }}" alt="Profile image">
+      <h1>{{ user.name }}</h1>
+    </div>
+  
+    <div class="products">
+      <h2>Top ventas</h2>
+      <ul>
+        <li *ngFor="let product of user.products">
+          <img src="{{ product.imageUrl }}" alt="{{ product.name }}">
+          <div class="product-info">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
+            <p class="price">{{ product.price | currency }}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  
+    <div class="description">
+      <h2>Descripción</h2>
+      <p>{{ user.description }}</p>
+      <button (click)="editDescription()">Editar descripción</button>
+    </div>
+  
+    <div class="actions">
+      <button (click)="followUser()">Seguir</button>
+    </div>
+  </div>

@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
+
 export class LoginComponent {
+  onProfileImageChange:File;
   fullName: string;
   email: string;
   password: string;
@@ -19,6 +23,14 @@ export class LoginComponent {
   registrado: boolean = false;
   acceptTerms: any;
 
+  mostrarRegistro() {
+    this.registrado = false;
+  }
+
+  mostrarIniciarSesion() {
+    this.registrado = true;
+  }
+  constructor(private router: Router) { }
   register() {
     if (!this.acceptTerms) {
         alert("Debe aceptar los términos y condiciones para continuar");
@@ -33,7 +45,7 @@ export class LoginComponent {
       this.invalidCode = true;
       return;
     }
-
+    
     // Mostrar una alerta indicando que el usuario se registró correctamente
     alert(`El usuario ${this.fullName} se ha registrado correctamente.`);
 
@@ -52,6 +64,7 @@ export class LoginComponent {
 
     // Mostrar una alerta indicando que el usuario ha iniciado sesión correctamente
     alert(`El usuario ${this.email} ha iniciado sesión correctamente.`);
+    this.router.navigate(['/tienda']);
   }
 
   checkAdminCode() {

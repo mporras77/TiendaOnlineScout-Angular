@@ -1,125 +1,84 @@
-/* Estilos para el formulario */
-.form-ml {
-  margin: 30px auto;
-  max-width: 500px;
-  padding: 30px;
-  background-color: #fff;
-  border: 1px solid #e2e2e2;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
 }
 
-/* Estilos para los encabezados */
 h2 {
-  font-size: 24px;
+  font-size: 2rem;
   margin-bottom: 20px;
-  text-align: center;
-  color: #4caf50;
 }
 
-/* Estilos para las etiquetas */
 label {
+  font-size: 1.2rem;
+  margin-top: 20px;
   display: block;
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 10px;
-  color: #333;
 }
 
-/* Estilos para los campos de entrada */
 input[type="text"],
 input[type="email"],
 input[type="password"],
 select {
+  font-size: 1.2rem;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
   width: 100%;
-  padding: 12px;
-  border: none;
-  border-bottom: 2px solid #4caf50;
-  border-radius: 0;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-  font-size: 16px;
-  color: #333;
-  transition: all 0.3s ease;
+  max-width: 400px;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-select:focus {
-  border-bottom: 2px solid #333;
-}
-
-/* Estilos para el campo de archivo */
 input[type="file"] {
   margin-top: 10px;
+  font-size: 16px;
+  color: #333;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
 }
 
-/* Estilos para el botón */
+input[type="file"]:hover {
+  border-color: #999;
+}
+
+input[type="file"]:focus {
+  outline: none;
+  border-color: #3b99fc;
+}
+
 button[type="submit"] {
-  background-color: #4caf50;
-  border: none;
-  color: #fff;
-  padding: 12px 24px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
   margin-top: 20px;
-  transition: all 0.3s ease;
+  padding: 10px 20px;
+  background-color: #0066ff;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 button[type="submit"]:hover {
-  background-color: #388e3c;
+  background-color: #0052cc;
 }
 
-/* Estilos para el enlace de términos y condiciones */
-a {
-  display: block;
-  margin-top: 20px;
-  color: #4caf50;
-}
-
-/* Estilos para el mensaje de error */
-.error {
-  color: red;
-  margin-top: 5px;
-  font-size: 14px;
-}
-
-/* Estilos para el checkbox */
-input[type="checkbox"] {
-  margin-right: 10px;
-}
-
-/* Estilos para los campos requeridos */
-input[required],
-select[required] {
-  border-bottom: 2px solid #ff0000;
-}
-
-/* Estilos para el campo enfocado */
-input:focus,
-select:focus {
-  outline: none;
-  border-bottom: 2px solid #4caf50;
-}
-
-/* Estilos para el campo de archivo */
-input[type="file"]::-webkit-file-upload-button {
-  background: #4caf50;
-  color: #fff;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 4px;
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #0066ff;
+  border-radius: 5px;
+  border: 1px solid #0066ff;
+  font-size: 1.2rem;
   cursor: pointer;
-  font-size: 16px;
-  transition: all 0.3s ease;
 }
 
-input[type="file"]::-webkit-file-upload-button:hover {
-  background: #388e3c;
+button:hover {
+  background-color: #0066ff;
+  color: #fff;
 }
+.perfil-imagen {
+  margin-top: 10px;
 
-/* Estilos para el botón de inicio de sesión */
-button[type="submit"].login {
-  background-color: #4285f4;
 }
