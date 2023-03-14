@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-
 
 export class LoginComponent {
   onProfileImageChange:File;
@@ -30,24 +30,33 @@ export class LoginComponent {
   mostrarIniciarSesion() {
     this.registrado = true;
   }
+
   constructor(private router: Router) { }
+
   register() {
     if (!this.acceptTerms) {
-        alert("Debe aceptar los términos y condiciones para continuar");
-        return;
+      Swal.fire({
+        icon: 'warning',
+        title: 'Debe aceptar los términos y condiciones para continuar',
+      });
+      return;
     }
+
     // Lógica para registrar al usuario
     // En este ejemplo, simplemente establecemos la variable registrado en true
     this.registrado = true;
-    
+
     // Verificar si el rol del usuario es un administrador y si se proporcionó un código de acceso válido
     if (this.role === 'administrador' && this.adminCode !== '6539363539363945') {
       this.invalidCode = true;
       return;
     }
-    
-    // Mostrar una alerta indicando que el usuario se registró correctamente
-    alert(`El usuario ${this.fullName} se ha registrado correctamente.`);
+
+    // Mostrar un mensaje indicando que el usuario se registró correctamente
+    Swal.fire({
+      icon: 'success',
+      title: `El usuario ${this.fullName} se ha registrado correctamente.`,
+    });
 
     // Iniciar sesión automáticamente después de registrarse
     this.login();
@@ -62,8 +71,12 @@ export class LoginComponent {
       role: this.role
     }));
 
-    // Mostrar una alerta indicando que el usuario ha iniciado sesión correctamente
-    alert(`El usuario ${this.email} ha iniciado sesión correctamente.`);
+    // Mostrar un mensaje indicando que el usuario ha iniciado sesión correctamente
+    Swal.fire({
+      icon: 'success',
+      title: `El usuario ${this.email} ha iniciado sesión correctamente.`,
+    });
+
     this.router.navigate(['/tienda']);
   }
 

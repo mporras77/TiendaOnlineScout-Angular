@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CarritoService} from "./carrito.service";
 import {DataSharingService} from "./data-sharing.service";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root',
@@ -21,9 +22,22 @@ export class AppComponent implements OnInit {
   }
 
   public async refrescarCarrito() {
-    this.productos = await this.carritoService.obtenerProductos();
+    try {
+      this.productos = await this.carritoService.obtenerProductos();
+      Swal.fire({
+        icon: 'success',
+        title: 'Carrito actualizado',
+        showConfirmButton: false,
+        timer: 1500
+      });
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error al actualizar el carrito',
+        text: error.message
+      });
+    }
   }
-
   public total() {
     // Quién te conoce reduce
     let total = 0;

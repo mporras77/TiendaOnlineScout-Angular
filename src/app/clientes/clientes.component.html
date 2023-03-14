@@ -1,1 +1,54 @@
-<p>clientes works!</p>
+<div class="container mt-5">
+    <h2>Clientes Activos</h2>
+    <table class="table table-striped mt-3">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Correo Electrónico</th>
+          <th>Dirección</th>
+          <th>Teléfono</th>
+          <th>Fecha de Ingreso</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let client of activeClients">
+          <td>{{ client.id }}</td>
+          <td>{{ client.name }}</td>
+          <td>{{ client.email }}</td>
+          <td>{{ client.address }}</td>
+          <td>{{ client.phone }}</td>
+          <td>{{ client.joinDate }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 class="mt-5">Clientes Inactivos</h2>
+    <table class="table table-striped mt-3">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Correo Electrónico</th>
+          <th>Dirección</th>
+          <th>Teléfono</th>
+          <th>Fecha de Ingreso</th>
+          <th>Compras Realizadas</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let client of inactiveClients">
+          <td>{{ client.id }}</td>
+          <td>{{ client.name }}</td>
+          <td>{{ client.email }}</td>
+          <td>{{ client.address }}</td>
+          <td>{{ client.phone }}</td>
+          <td>{{ client.joinDate }}</td>
+          <td>{{ client.purchases }}</td>
+          <td>
+            <button class="btn btn-success" (click)="reactivateClient(client.id)">Reactivar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

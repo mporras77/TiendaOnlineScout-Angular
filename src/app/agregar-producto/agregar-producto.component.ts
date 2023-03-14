@@ -1,24 +1,8 @@
-/*
-
-    Programado por Luis Cabrera Benito 
-  ____          _____               _ _           _       
- |  _ \        |  __ \             (_) |         | |      
- | |_) |_   _  | |__) |_ _ _ __ _____| |__  _   _| |_ ___ 
- |  _ <| | | | |  ___/ _` | '__|_  / | '_ \| | | | __/ _ \
- | |_) | |_| | | |  | (_| | |   / /| | |_) | |_| | ||  __/
- |____/ \__, | |_|   \__,_|_|  /___|_|_.__/ \__, |\__\___|
-         __/ |                               __/ |        
-        |___/                               |___/         
-    
-    
-    Blog:       https://parzibyte.me/blog
-    Ayuda:      https://parzibyte.me/blog/contrataciones-ayuda/
-    Contacto:   https://parzibyte.me/blog/contacto/
-*/
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Producto} from "../producto";
 import {ProductosService} from "../productos.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-agregar-producto',
@@ -38,17 +22,21 @@ export class AgregarProductoComponent implements OnInit {
 
   async guardar() {
     if (!this.productoModel.nombre) {
-      return alert("Escribe un nombre");
+      Swal.fire('Error', 'Escribe un nombre', 'error');
+      return;
     }
     if (!this.productoModel.descripcion) {
-      return alert("Escribe la descripción");
+      Swal.fire('Error', 'Escribe la descripción', 'error');
+      return;
     }
     if (!this.productoModel.precio) {
-      return alert("Escribe el precio");
+      Swal.fire('Error', 'Escribe el precio', 'error');
+      return;
     }
     let archivos = this.foto.nativeElement.files;
     if (!archivos.length) {
-      return alert("Selecciona al menos una foto");
+      Swal.fire('Error', 'Selecciona al menos una foto', 'error');
+      return;
     }
     this.cargando = true;
     // Guardamos producto
@@ -65,15 +53,12 @@ export class AgregarProductoComponent implements OnInit {
       horizontalPosition: "start",
       verticalPosition: "top",
     });
-
+    Swal.fire('Producto guardado', '', 'success');
     this.cargando = false;
     this.productoModel = new Producto("", "");
     this.foto.nativeElement.value = "";
   }
 
   ngOnInit(): void {
-
-
   }
-
 }

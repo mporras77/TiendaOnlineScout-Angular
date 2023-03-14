@@ -22,6 +22,9 @@ import {HttpService} from "./http.service";
   providedIn: 'root'
 })
 export class CarritoService {
+  eliminarCarrito() {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(private http: HttpService) {
   }
