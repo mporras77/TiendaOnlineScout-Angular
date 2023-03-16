@@ -1,0 +1,55 @@
+<div>
+    <h2>Crear suscripción</h2>
+    <form>
+      <div>
+        <label>Tipo de suscripción:</label>
+        <select [(ngModel)]="tipoSuscripcion" name="tipoSuscripcion">
+          <option *ngFor="let suscripcion of suscripciones" [value]="suscripcion.tipo">{{ suscripcion.nombre }}</option>
+        </select>
+      </div>
+      <div>
+        <label>Descripción:</label>
+        <textarea [(ngModel)]="descripcion" name="descripcion"></textarea>
+      </div>
+      <div>
+        <label>Tiempo estimado anual de caducidad:</label>
+        <input type="number" [(ngModel)]="tiempoCaducidad" name="tiempoCaducidad">
+      </div>
+      <div>
+        <label>Precio de actualización:</label>
+        <input type="number" [(ngModel)]="precioActualizacion" name="precioActualizacion">
+      </div>
+      <div>
+        <button type="button" (click)="crearSuscripcion()">Crear suscripción</button>
+      </div>
+    </form>
+  </div>
+  
+  <div>
+    <h2>Crear nueva suscripción</h2>
+    <form>
+      <div>
+        <label>Nombre:</label>
+        <input type="text" [(ngModel)]="nuevaSuscripcionNombre" name="nuevaSuscripcionNombre">
+      </div>
+      <div>
+        <label>Tipo de suscripción:</label>
+        <input type="text" [(ngModel)]="nuevaSuscripcionTipo" name="nuevaSuscripcionTipo">
+      </div>
+      <div>
+        <label>Descripción:</label>
+        <textarea [(ngModel)]="nuevaSuscripcionDescripcion" name="nuevaSuscripcionDescripcion"></textarea>
+      </div>
+      <div>
+        <label>Tiempo estimado anual de caducidad:</label>
+        <input type="number" [(ngModel)]="nuevaSuscripcionTiempoCaducidad" name="nuevaSuscripcionTiempoCaducidad">
+      </div>
+      <div>
+        <label>Precio de actualización:</label>
+        <input type="number" [(ngModel)]="nuevaSuscripcionPrecioActualizacion" name="nuevaSuscripcionPrecioActualizacion">
+      </div>
+      <div>
+        <button type="button" (click)="crearNuevaSuscripcion()">Crear nueva suscripción</button>
+      </div>
+    </form>
+  </div>

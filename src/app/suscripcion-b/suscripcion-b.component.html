@@ -1,0 +1,28 @@
+<div *ngFor="let suscripcion of suscripciones">
+    <h2>{{ suscripcion.nombre }}</h2>
+    <p>{{ suscripcion.descripcion }}</p>
+    <p><strong>Precio: {{ suscripcion.precioActualizacion }} USD</strong></p>
+    <button type="button" (click)="comprarSuscripcion(suscripcion, correo)">Comprar suscripción</button>
+  </div>
+  
+  <div *ngIf="suscripcionesCompradas.length > 0">
+    <h2>Suscripciones compradas</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Tipo de suscripción</th>
+          <th>Correo electrónico</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let suscripcion of suscripcionesCompradas">
+          <td>{{ suscripcion.id }}</td>
+          <td>{{ suscripcion.tipo }}</td>
+          <td>{{ suscripcion.correo }}</td>
+          <td><button type="button" (click)="eliminarSuscripcion(suscripcion.id)">Eliminar</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

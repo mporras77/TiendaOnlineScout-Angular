@@ -11,6 +11,9 @@ import { TerminarCompraComponent } from './terminar-compra/terminar-compra.compo
 import { DetalleDeVentaComponent } from './detalle-de-venta/detalle-de-venta.component';
 import { LoginComponent } from './login/login.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { SuscripcionAComponent } from './suscripcion-a/suscripcion-a.component';
+import { SuscripcionBComponent } from './suscripcion-b/suscripcion-b.component';
+import { SuscripcionService } from './services/suscripcion.service';
 
 const routes: Routes = [
   { path: 'productos', component: ProductosComponent },
@@ -23,12 +26,15 @@ const routes: Routes = [
   { path: 'detalle-venta/:id', component: DetalleDeVentaComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profileUser', component: UserProfileComponent },
+  { path: 'suscripcion-a', component: SuscripcionAComponent },
+  { path: 'suscripcion-b', component: SuscripcionBComponent },
   { path: '**', redirectTo: '/login' },
-  { path: '', pathMatch: 'full', redirectTo: '/productos' } // change this to redirect to /productos
+  { path: '', pathMatch: 'full', redirectTo: '/productos' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [SuscripcionService]
 })
 export class AppRoutingModule {}
